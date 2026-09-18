@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ student_info.title }} | VTU {{ student_info.subject_code }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header class="site-header">
+        <div class="top-banner">
+            <div class="container banner-content">
+                <span>VTU Academic Project &bull; Visvesvaraya Technological University</span>
+                <span>Subject: <strong>{{ student_info.subject }} ({{ student_info.subject_code }})</strong> &bull; {{ student_info.activity }}</span>
+            </div>
+        </div>
+        <div class="main-header">
+            <div class="container header-grid">
+                <div>
+                    <h1>{{ student_info.title }}</h1>
+                    <p class="subtitle">VTU {{ student_info.subject_code }} &ndash; Activity Based Learning</p>
+                    <div class="student-meta">
+                        <span>Student: <strong>{{ student_info.name }}</strong></span>
+                        <span>USN: <strong class="usn-badge">{{ student_info.usn }}</strong></span>
+                        <span>Activity: <strong>{{ student_info.topic }}</strong></span>
+                    </div>
+                </div>
+                <div class="quick-actions">
+                    <a href="{{ url_for('load_sample_data') }}" class="btn btn-primary">Load Sample Data</a>
+                    <a href="{{ url_for('reset') }}" class="btn btn-secondary">Reset Chain</a>
+                </div>
+            </div>
+        </div>
+        <nav class="nav-bar">
+            <div class="container nav-links">
+                <a href="{{ url_for('index') }}" class="nav-item">Dashboard</a>
+                <a href="{{ url_for('add_payroll') }}" class="nav-item">Add Payroll</a>
+                <a href="{{ url_for('view_blockchain') }}" class="nav-item">Blockchain</a>
+                <a href="{{ url_for('verify') }}" class="nav-item">Verification</a>
+                <a href="{{ url_for('tamper_demo') }}" class="nav-item">Tamper Demo</a>
+                <a href="{{ url_for('architecture') }}" class="nav-item">Architecture</a>
+                <a href="{{ url_for('about') }}" class="nav-item">About Project</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container main-content">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="flash-alert flash-{{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-content">
+            <p>{{ student_info.title }} &bull; VTU {{ student_info.subject_code }} Activity Based Learning</p>
+            <p>Student: {{ student_info.name }} (USN: {{ student_info.usn }})</p>
+        </div>
+    </footer>
+</body>
+</html>

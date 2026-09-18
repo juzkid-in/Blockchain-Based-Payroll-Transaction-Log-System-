@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="welcome-box">
+    <h2>Payroll Transaction Blockchain Ledger</h2>
+    <p>Academic demonstration recording employee payroll events into cryptographically linked SHA-256 blocks with continuous integrity verification.</p>
+</section>
+
+<div class="metrics-grid">
+    <div class="metric-card">
+        <div class="metric-label">Total Blocks</div>
+        <div class="metric-value">{{ total_blocks }}</div>
+        <div class="metric-sub">Genesis + {{ payroll_txns }} Transactions</div>
+    </div>
+    <div class="metric-card">
+        <div class="metric-label">Payroll Transactions</div>
+        <div class="metric-value">{{ payroll_txns }}</div>
+        <div class="metric-sub">Logged Employee Records</div>
+    </div>
+    <div class="metric-card {% if is_valid %}status-valid{% else %}status-invalid{% endif %}">
+        <div class="metric-label">Blockchain Status</div>
+        <div class="metric-value">{% if is_valid %}VALID{% else %}INVALID{% endif %}</div>
+        <div class="metric-sub">{% if is_valid %}No tampering detected.{% else %}Tampering detected!{% endif %}</div>
+    </div>
+    <div class="metric-card">
+        <div class="metric-label">Genesis Block</div>
+        <div class="metric-value">PRESENT</div>
+        <div class="metric-sub">Index 0 &bull; Prev Hash: "0"</div>
+    </div>
+</div>
+
+<section class="section-card">
+    <div class="section-header">
+        <h3>Recent Blockchain Ledger Records</h3>
+        <a href="{{ url_for('view_blockchain') }}" class="btn btn-outline">View Full Chain &rarr;</a>
+    </div>
+
+    {% if chain|length <= 1 %}
+        <div class="empty-state">
+            <p>Only the Genesis Block exists. Click <strong>"Load Sample Data"</strong> or <strong>"Add Payroll"</strong> to append transaction blocks.</p>
+        </div>
+    {% else %}
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Block #</th>
+                    <th>Employee ID</th>
+                    <th>Employee Name</th>
+                    <th>Salary</th>
+                    <th>Month</th>
+                    <th>Status</th>
+                    <th>Block Hash (SHA-256)</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for block in chain[1:] %}
+                <tr>
+                    <td><span class="badge badge-index">Block #{{ block.index }}</span></td>
+                    <td><strong>{{ block.data.employee_id }}</strong></td>
+                    <td>{{ block.data.employee_name }}</td>
+                    <td class="salary-cell">&dollar;{{ block.data.salary }} / &#8377;{{ block.data.salary }}</td>
+                    <td>{{ block.data.payroll_month }}</td>
+                    <td><span class="badge badge-{{ block.data.payment_status.lower() }}">{{ block.data.payment_status }}</span></td>
+                    <td class="hash-cell" title="{{ block.hash }}">{{ block.hash[:12] }}...{{ block.hash[-8:] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+</section>
+{% endblock %}

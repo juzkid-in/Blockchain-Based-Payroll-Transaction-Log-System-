@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="section-card">
+    <h2>About Project</h2>
+    <div class="project-details-grid">
+        <div><span>Project Title:</span> <strong>{{ student_info.title }}</strong></div>
+        <div><span>Student Name:</span> <strong>{{ student_info.name }}</strong></div>
+        <div><span>University Seat No (USN):</span> <strong>{{ student_info.usn }}</strong></div>
+        <div><span>Subject:</span> <strong>{{ student_info.subject }}</strong></div>
+        <div><span>Subject Code:</span> <strong>{{ student_info.subject_code }}</strong></div>
+        <div><span>Activity:</span> <strong>{{ student_info.activity }}</strong></div>
+        <div><span>Assigned Topic:</span> <strong>{{ student_info.topic }}</strong></div>
+    </div>
+
+    <hr class="divider">
+
+    <h3>Project Objective</h3>
+    <p>
+        Develop a blockchain-based Payroll Transaction Log System that records employee payroll transactions in blocks and provides blockchain integrity verification using SHA-256 hashing. The application demonstrates how blockchain can maintain a tamper-evident audit log.
+    </p>
+
+    <h3>Problem Statement</h3>
+    <p>
+        Payroll records require strict integrity. Traditional centralized databases are managed by privileged administrators who can execute SQL modifications without leaving an immutable audit trail. Proving whether historical salary records were modified accidentally or improperly is difficult. A blockchain-based transaction log solves this by creating an append-only, tamper-evident ledger linked via SHA-256 cryptographic digests.
+    </p>
+
+    <h3>Why Blockchain?</h3>
+    <ul>
+        <li><strong>Hashing:</strong> SHA-256 creates a fixed 64-character hexadecimal digest.</li>
+        <li><strong>Immutability &amp; Tamper Evidence:</strong> Any change to payroll data changes the block hash.</li>
+        <li><strong>Linking of Blocks:</strong> Each block stores the previous block's hash, forming an unbroken chain.</li>
+        <li><strong>Automated Verification:</strong> Continuous integrity audits recalculate hashes on the fly.</li>
+        <li><strong>Transparency:</strong> Audit logs can be inspected without trusting a central party.</li>
+    </ul>
+
+    <h3>12-Step Academic Algorithm</h3>
+    <ol class="numbered-steps">
+        <li>Start.</li>
+        <li>Create Genesis Block.</li>
+        <li>Set previous hash to "0".</li>
+        <li>Accept payroll transaction.</li>
+        <li>Create a new block.</li>
+        <li>Store previous block hash.</li>
+        <li>Calculate SHA-256 hash.</li>
+        <li>Add block to blockchain.</li>
+        <li>Repeat for additional payroll transactions.</li>
+        <li>Validate every block.</li>
+        <li>Display VALID or INVALID status.</li>
+        <li>Stop.</li>
+    </ol>
+
+    <h3>Testing &amp; Verification Matrix</h3>
+    <table class="data-table">
+        <thead>
+            <tr>
+                <th>Test Case</th>
+                <th>Description</th>
+                <th>Expected Output</th>
+                <th>Result</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>TC-01</td>
+                <td>Create Genesis Block</td>
+                <td>Genesis Block created with prev_hash="0"</td>
+                <td><span class="badge badge-paid">PASS</span></td>
+            </tr>
+            <tr>
+                <td>TC-02</td>
+                <td>Add payroll transaction</td>
+                <td>New block created and appended</td>
+                <td><span class="badge badge-paid">PASS</span></td>
+            </tr>
+            <tr>
+                <td>TC-03</td>
+                <td>Add multiple payroll transactions</td>
+                <td>Blocks linked using previous hashes</td>
+                <td><span class="badge badge-paid">PASS</span></td>
+            </tr>
+            <tr>
+                <td>TC-04</td>
+                <td>Verify valid blockchain</td>
+                <td>Status: VALID</td>
+                <td><span class="badge badge-paid">PASS</span></td>
+            </tr>
+            <tr>
+                <td>TC-05</td>
+                <td>Modify payroll data via Tamper Demo</td>
+                <td>Status: INVALID</td>
+                <td><span class="badge badge-paid">PASS</span></td>
+            </tr>
+            <tr>
+                <td>TC-06</td>
+                <td>Restore original data</td>
+                <td>Status: VALID</td>
+                <td><span class="badge badge-paid">PASS</span></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Results Demonstrated</h3>
+    <p>
+        The working application rigorously demonstrates Genesis block creation, payroll transaction recording, SHA-256 hashing, block-to-block hash linking, blockchain validation, and tamper detection.
+    </p>
+</section>
+{% endblock %}

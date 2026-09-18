@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="section-card form-container">
+    <div class="section-header">
+        <h2>Add Payroll Transaction Block</h2>
+        <span class="badge badge-index">Next: Block #{{ latest_block.index + 1 }}</span>
+    </div>
+    <p class="section-desc">Enter employee compensation details. The server will compute a fresh SHA-256 hash linked to Block #{{ latest_block.index }}.</p>
+
+    <form action="{{ url_for('add_payroll') }}" method="POST" class="payroll-form">
+        <div class="form-group">
+            <label for="employee_id">Employee ID *</label>
+            <input type="text" id="employee_id" name="employee_id" placeholder="e.g. EMP001" required>
+        </div>
+
+        <div class="form-group">
+            <label for="employee_name">Employee Name *</label>
+            <input type="text" id="employee_name" name="employee_name" placeholder="e.g. Rahul Kumar" required>
+        </div>
+
+        <div class="form-group">
+            <label for="salary">Salary Amount (INR &#8377;) *</label>
+            <input type="number" id="salary" name="salary" placeholder="e.g. 35000" min="1" required>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="payroll_month">Payroll Month *</label>
+                <input type="text" id="payroll_month" name="payroll_month" value="September 2026" required>
+            </div>
+            <div class="form-group">
+                <label for="payment_status">Payment Status *</label>
+                <select id="payment_status" name="payment_status">
+                    <option value="Paid">Paid</option>
+                    <option value="Pending">Pending</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="remarks">Remarks / Department (Optional)</label>
+            <input type="text" id="remarks" name="remarks" placeholder="e.g. Monthly Base Compensation">
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary btn-block">Add Payroll Transaction</button>
+        </div>
+    </form>
+</section>
+{% endblock %}

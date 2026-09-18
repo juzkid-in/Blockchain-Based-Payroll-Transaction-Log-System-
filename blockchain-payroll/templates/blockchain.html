@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="section-card">
+    <div class="section-header">
+        <h2>Visual Blockchain Explorer</h2>
+        <span class="badge {% if is_valid %}badge-paid{% else %}badge-invalid{% endif %}">
+            Chain Status: {% if is_valid %}VALID{% else %}INVALID{% endif %}
+        </span>
+    </div>
+    <p class="section-desc">Sequential chain of payroll blocks linked via SHA-256 parent hash references. Ready for assignment screenshots.</p>
+
+    <div class="blockchain-flow">
+        {% for block in chain %}
+            <div class="block-card {% if block.index == 0 %}genesis-block-card{% endif %}">
+                <div class="block-card-header">
+                    <div class="block-title">
+                        <span class="block-number">Block #{{ block.index }}</span>
+                        {% if block.index == 0 %}
+                            <span class="badge badge-genesis">GENESIS BLOCK</span>
+                        {% else %}
+                            <span class="badge badge-txn">Payroll Block</span>
+                        {% endif %}
+                    </div>
+                    <span class="block-time">{{ block.timestamp }}</span>
+                </div>
+
+                <div class="block-card-body">
+                    {% if block.index == 0 %}
+                        <div class="genesis-payload">
+                            <strong>{{ block.data.message }}</strong>
+                            <p>Initialized by: {{ block.data.initialized_by }}</p>
+                        </div>
+                    {% else %}
+                        <div class="payroll-data-grid">
+                            <div><span>Employee ID:</span> <strong>{{ block.data.employee_id }}</strong></div>
+                            <div><span>Employee Name:</span> <strong>{{ block.data.employee_name }}</strong></div>
+                            <div><span>Salary:</span> <strong class="salary-cell">&#8377;{{ block.data.salary }}</strong></div>
+                            <div><span>Month:</span> <strong>{{ block.data.payroll_month }}</strong></div>
+                            <div><span>Status:</span> <span class="badge badge-{{ block.data.payment_status.lower() }}">{{ block.data.payment_status }}</span></div>
+                        </div>
+                    {% endif %}
+
+                    <div class="hash-section">
+                        <div class="hash-item">
+                            <span class="hash-label">Previous Hash (Parent Link):</span>
+                            <div class="hash-value prev-hash">{{ block.previous_hash }}</div>
+                        </div>
+                        <div class="hash-item">
+                            <span class="hash-label">Current Hash (SHA-256 Digest):</span>
+                            <div class="hash-value curr-hash">{{ block.hash }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {% if not loop.last %}
+                <div class="chain-arrow">
+                    <div class="arrow-line"></div>
+                    <div class="arrow-label">&darr; Linked by Previous Hash &darr;</div>
+                    <div class="arrow-line"></div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

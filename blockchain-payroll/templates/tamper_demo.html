@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="section-card">
+    <div class="section-header">
+        <h2>Tamper Detection Demonstration</h2>
+        <a href="{{ url_for('load_sample_data') }}" class="btn btn-secondary">Restore Sample Chain</a>
+    </div>
+    <p class="section-desc">
+        This safe academic sandbox simulates an insider modifying stored salary data (e.g. inflating salary from &#8377;35,000 to &#8377;50,000) to prove cryptographic detection.
+    </p>
+
+    {% if chain|length <= 1 %}
+        <div class="empty-state">
+            <p>Please load sample data or add a transaction block first.</p>
+            <a href="{{ url_for('load_sample_data') }}" class="btn btn-primary">Load Sample Data</a>
+        </div>
+    {% else %}
+        <form action="{{ url_for('tamper_demo') }}" method="POST" class="payroll-form">
+            <div class="form-group">
+                <label for="block_index">Select Block to Tamper</label>
+                <select id="block_index" name="block_index">
+                    {% for block in chain[1:] %}
+                        <option value="{{ block.index }}">
+                            Block #{{ block.index }} &ndash; {{ block.data.employee_id }} ({{ block.data.employee_name }}) - Current Salary: &#8377;{{ block.data.salary }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="tampered_salary">Modified Salary Amount (&#8377;)</label>
+                <input type="number" id="tampered_salary" name="tampered_salary" value="50000" required>
+                <small>Example: Changing &#8377;35000 to &#8377;50000 violates the stored SHA-256 digest.</small>
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="btn btn-danger btn-block">Apply Tampering &amp; Trigger Audit</button>
+            </div>
+        </form>
+    {% endif %}
+</section>
+{% endblock %}

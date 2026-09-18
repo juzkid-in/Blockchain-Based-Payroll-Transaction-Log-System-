@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="section-card">
+    <div class="section-header">
+        <h2>Blockchain Cryptographic Integrity Verification</h2>
+        <div class="header-actions">
+            {% if not is_valid %}
+                <a href="{{ url_for('restore_data') }}" class="btn btn-success">&circlearrowright; Restore Authentic Data</a>
+            {% endif %}
+            <a href="{{ url_for('verify') }}" class="btn btn-primary">Re-Run Audit</a>
+        </div>
+    </div>
+
+    <div class="verification-banner {% if is_valid %}banner-valid{% else %}banner-invalid{% endif %}">
+        <h3>Blockchain Status: {% if is_valid %}VALID{% else %}INVALID{% endif %}</h3>
+        <p>{{ status_msg }}</p>
+    </div>
+
+    <h3>Block-by-Block Verification Breakdown</h3>
+    <table class="data-table">
+        <thead>
+            <tr>
+                <th>Block #</th>
+                <th>Hash Check (Recalculated vs Stored)</th>
+                <th>Link Check (PrevHash == Prior Block)</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for check in checks %}
+            <tr class="{% if not check.is_valid %}row-compromised{% endif %}">
+                <td><strong>Block #{{ check.index }}</strong></td>
+                <td>
+                    {% if check.hash_matches %}
+                        <span class="text-valid">&check; Matches Computed SHA-256</span>
+                    {% else %}
+                        <span class="text-invalid">&cross; MISMATCH! Computed: {{ check.recalculated_hash[:12] }}...</span>
+                    {% endif %}
+                </td>
+                <td>
+                    {% if check.prev_link_matches %}
+                        <span class="text-valid">&check; Previous Link Valid</span>
+                    {% else %}
+                        <span class="text-invalid">&cross; BROKEN LINK! Expected: {{ check.expected_prev_hash[:12] }}...</span>
+                    {% endif %}
+                </td>
+                <td>
+                    <span class="badge {% if check.is_valid %}badge-paid{% else %}badge-invalid{% endif %}">
+                        {% if check.is_valid %}VALID{% else %}COMPROMISED{% endif %}
+                    </span>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</section>
+{% endblock %}

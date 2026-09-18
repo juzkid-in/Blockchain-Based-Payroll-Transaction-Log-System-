@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="section-card">
+    <h2>System Architecture &amp; Execution Flow</h2>
+    <p class="section-desc">Visualizing the flow from HR payroll entry to cryptographic SHA-256 linking and audit verification.</p>
+
+    <div class="architecture-diagram">
+        <div class="arch-box arch-actor">HR / ADMIN</div>
+        <div class="arch-arrow">&darr;</div>
+        <div class="arch-box">Payroll Data Entry Form</div>
+        <div class="arch-arrow">&darr;</div>
+        <div class="arch-box">Payroll Transaction (JSON)</div>
+        <div class="arch-arrow">&darr;</div>
+        <div class="arch-box">Create Block (Index + Timestamp)</div>
+        <div class="arch-arrow">&darr;</div>
+        <div class="arch-box arch-highlight">SHA-256 Hashing</div>
+        <div class="arch-arrow">&darr;</div>
+        <div class="arch-box">Previous Hash Link</div>
+        <div class="arch-arrow">&darr;</div>
+        <div class="arch-box">Blockchain Ledger</div>
+        <div class="arch-arrow">&darr;</div>
+        <div class="arch-box arch-audit">Verification &amp; Tamper Detection</div>
+    </div>
+
+    <div class="steps-container">
+        <h3>How the System Works (7 Steps)</h3>
+        <ol class="numbered-steps">
+            <li><strong>Step 1:</strong> HR/Admin enters employee payroll information into the system.</li>
+            <li><strong>Step 2:</strong> The payroll information is converted into a transaction.</li>
+            <li><strong>Step 3:</strong> The transaction is stored in a new block.</li>
+            <li><strong>Step 4:</strong> SHA-256 generates the block hash.</li>
+            <li><strong>Step 5:</strong> The new block stores the previous block's hash.</li>
+            <li><strong>Step 6:</strong> The blocks form a chain.</li>
+            <li><strong>Step 7:</strong> The system validates the chain to detect tampering.</li>
+        </ol>
+    </div>
+</section>
+{% endblock %}
