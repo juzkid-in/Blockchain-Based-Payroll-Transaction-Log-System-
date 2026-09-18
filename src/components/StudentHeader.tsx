@@ -26,7 +26,7 @@ export const StudentHeader: React.FC<StudentHeaderProps> = ({
             <span className="inline-flex items-center px-2 py-0.5 rounded bg-blue-500/20 text-blue-300 font-semibold border border-blue-400/30">
               VTU Academic Project
             </span>
-            <span>Visvesvaraya Technological University • Department of Information Science & Engineering</span>
+            <span>Visvesvaraya Technological University • Department of IoT, Cybersecurity and Blockchain Technology</span>
           </div>
           <div className="flex items-center gap-4 text-xs">
             <span>Subject: <strong className="text-white">Blockchain Technology ({ACADEMIC_PROJECT_INFO.subjectCode})</strong></span>
@@ -49,7 +49,7 @@ export const StudentHeader: React.FC<StudentHeaderProps> = ({
                   {ACADEMIC_PROJECT_INFO.title}
                 </h1>
                 <p className="text-sm font-medium text-blue-300">
-                  {ACADEMIC_PROJECT_INFO.subtitle}
+                  {ACADEMIC_PROJECT_INFO.subtitle} • Dept of {ACADEMIC_PROJECT_INFO.department}
                 </p>
               </div>
             </div>
@@ -70,8 +70,12 @@ export const StudentHeader: React.FC<StudentHeaderProps> = ({
               </div>
               <div className="flex items-center gap-2">
                 <BookOpen className="w-4 h-4 text-cyan-400" />
-                <span>Activity:</span>
-                <span className="text-slate-200 font-medium">{ACADEMIC_PROJECT_INFO.assignedTopic}</span>
+                <span>Dept:</span>
+                <span className="text-blue-300 font-medium">{ACADEMIC_PROJECT_INFO.department}</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-slate-400 text-xs">Topic:</span>
+                <span className="text-slate-200 font-medium text-xs">{ACADEMIC_PROJECT_INFO.assignedTopic}</span>
               </div>
             </div>
           </div>

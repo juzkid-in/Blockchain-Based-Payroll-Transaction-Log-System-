@@ -29,7 +29,7 @@ export const AboutView: React.FC = () => {
               {ACADEMIC_PROJECT_INFO.title}
             </h2>
             <p className="text-slate-300 text-xs sm:text-sm mt-1">
-              Course: <strong>{ACADEMIC_PROJECT_INFO.subject} ({ACADEMIC_PROJECT_INFO.subjectCode})</strong> • 7th Semester B.E.
+              Department: <strong className="text-blue-300">{ACADEMIC_PROJECT_INFO.department}</strong> • Course: <strong>{ACADEMIC_PROJECT_INFO.subject} ({ACADEMIC_PROJECT_INFO.subjectCode})</strong> • 7th Sem B.E.
             </p>
           </div>
 
@@ -40,7 +40,7 @@ export const AboutView: React.FC = () => {
         </div>
 
         {/* Candidate & Project Meta Matrix (Section 15) */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 text-xs">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-3 text-xs">
           <div className="bg-slate-900/80 p-3 rounded-lg border border-slate-750">
             <span className="text-slate-400 block mb-1">Student Name</span>
             <strong className="text-white text-sm block">{ACADEMIC_PROJECT_INFO.studentName}</strong>
@@ -49,6 +49,11 @@ export const AboutView: React.FC = () => {
           <div className="bg-slate-900/80 p-3 rounded-lg border border-slate-750">
             <span className="text-slate-400 block mb-1">University Seat No (USN)</span>
             <span className="font-mono font-bold text-amber-300 text-sm block">{ACADEMIC_PROJECT_INFO.usn}</span>
+          </div>
+
+          <div className="bg-slate-900/80 p-3 rounded-lg border border-slate-750">
+            <span className="text-slate-400 block mb-1">Department</span>
+            <span className="text-blue-300 font-semibold text-xs block leading-tight">{ACADEMIC_PROJECT_INFO.department}</span>
           </div>
 
           <div className="bg-slate-900/80 p-3 rounded-lg border border-slate-750">

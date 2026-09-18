@@ -1,6 +1,6 @@
 {
   "name": "Blockchain-Based Payroll Transaction Log System",
-  "description": "VTU BIC702 Activity Based Learning – Activity 1 academic project by Sanjai Shanmuga Prabu (1SP23IC047). Records employee payroll transactions in tamper-evident blocks with SHA-256 hashing and integrity verification.",
+  "description": "VTU BIC702 Activity Based Learning – Activity 1 academic project by Sanjai Shanmuga Prabu (1SP23IC047), Department of IoT, Cybersecurity and Blockchain Technology. Records employee payroll transactions in tamper-evident blocks with SHA-256 hashing and integrity verification.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

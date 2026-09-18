@@ -11,7 +11,7 @@
 
 - **Student Name:** Sanjai Shanmuga Prabu
 - **USN:** `1SP23IC047`
-- **Department:** Information Science & Engineering / Computer Science & Engineering
+- **Department:** Department of IoT, Cybersecurity and Blockchain Technology
 - **Institution:** Visvesvaraya Technological University (VTU)
 - **Project Title:** Blockchain-Based Payroll Transaction Log System
 - **Activity Number:** Activity 1

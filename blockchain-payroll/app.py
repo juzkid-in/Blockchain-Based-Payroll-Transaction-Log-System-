@@ -21,6 +21,7 @@ original_blocks_backup = {}
 STUDENT_INFO = {
     'name': 'Sanjai Shanmuga Prabu',
     'usn': '1SP23IC047',
+    'department': 'IoT, Cybersecurity and Blockchain Technology',
     'subject': 'Blockchain Technology',
     'subject_code': 'BIC702',
     'activity': 'Activity Based Learning – Activity 1',

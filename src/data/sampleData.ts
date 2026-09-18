@@ -5,6 +5,7 @@ export const ACADEMIC_PROJECT_INFO = {
   subtitle: 'VTU BIC702 – Activity Based Learning',
   studentName: 'Sanjai Shanmuga Prabu',
   usn: '1SP23IC047',
+  department: 'IoT, Cybersecurity and Blockchain Technology',
   subject: 'Blockchain Technology',
   subjectCode: 'BIC702',
   activity: 'Activity Based Learning – Activity 1',
