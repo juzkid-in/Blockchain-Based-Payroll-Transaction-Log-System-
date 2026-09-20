@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ACADEMIC_PROJECT_INFO, TEST_CASES_DATA } from '../data/sampleData';
 import {
   FileText,
@@ -13,9 +13,20 @@ import {
   ListOrdered,
   Layers,
   Sparkles,
+  Globe,
+  ExternalLink,
+  Copy,
+  Check,
 } from 'lucide-react';
 
 export const AboutView: React.FC = () => {
+  const [copiedDemo, setCopiedDemo] = useState(false);
+
+  const copyToClipboard = (text: string) => {
+    navigator.clipboard.writeText(text);
+    setCopiedDemo(true);
+    setTimeout(() => setCopiedDemo(false), 2000);
+  };
   return (
     <div className="space-y-10 max-w-5xl mx-auto animate-fadeIn">
       {/* Title & VTU Assignment Header */}
@@ -64,6 +75,59 @@ export const AboutView: React.FC = () => {
           <div className="bg-slate-900/80 p-3 rounded-lg border border-slate-750">
             <span className="text-slate-400 block mb-1">Cryptographic Standard</span>
             <span className="font-mono text-emerald-400 font-bold block">SHA-256 (FIPS 180-4)</span>
+          </div>
+        </div>
+
+        {/* Live GitHub Demo Link Banner */}
+        <div className="bg-gradient-to-r from-blue-950/60 via-slate-900 to-indigo-950/60 p-4 rounded-xl border border-blue-500/30 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mt-4">
+          <div className="flex items-start gap-3">
+            <div className="p-2.5 rounded-lg bg-blue-500/20 text-blue-400 border border-blue-500/30 shrink-0">
+              <Globe className="w-5 h-5" />
+            </div>
+            <div>
+              <div className="flex items-center gap-2">
+                <h4 className="text-sm font-bold text-white">GitHub Repository Live Demo URL</h4>
+                <span className="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+                  Online &amp; Active
+                </span>
+              </div>
+              <p className="text-xs text-slate-300 mt-0.5">
+                Include this URL in your GitHub repository README and viva presentation for instant evaluator access:
+              </p>
+              <div className="mt-2 flex items-center gap-2">
+                <code className="text-xs font-mono bg-slate-950 px-3 py-1.5 rounded-md border border-slate-800 text-blue-300 select-all break-all">
+                  {ACADEMIC_PROJECT_INFO.demoUrl}
+                </code>
+              </div>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-2 w-full md:w-auto shrink-0">
+            <button
+              onClick={() => copyToClipboard(ACADEMIC_PROJECT_INFO.demoUrl)}
+              className="flex-1 md:flex-none flex items-center justify-center gap-1.5 px-3.5 py-2 text-xs font-semibold rounded-lg bg-slate-800 hover:bg-slate-750 border border-slate-700 text-slate-200 transition-colors shadow-sm cursor-pointer"
+            >
+              {copiedDemo ? (
+                <>
+                  <Check className="w-4 h-4 text-emerald-400" />
+                  <span className="text-emerald-400 font-bold">Copied!</span>
+                </>
+              ) : (
+                <>
+                  <Copy className="w-4 h-4 text-slate-400" />
+                  <span>Copy URL</span>
+                </>
+              )}
+            </button>
+            <a
+              href={ACADEMIC_PROJECT_INFO.demoUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 md:flex-none flex items-center justify-center gap-1.5 px-3.5 py-2 text-xs font-semibold rounded-lg bg-blue-600 hover:bg-blue-500 text-white transition-colors shadow-sm"
+            >
+              <ExternalLink className="w-4 h-4" />
+              <span>Launch Demo</span>
+            </a>
           </div>
         </div>
       </div>

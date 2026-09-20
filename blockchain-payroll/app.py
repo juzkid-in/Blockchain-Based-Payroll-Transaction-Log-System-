@@ -26,7 +26,8 @@ STUDENT_INFO = {
     'subject_code': 'BIC702',
     'activity': 'Activity Based Learning – Activity 1',
     'topic': 'Payroll Transaction Log',
-    'title': 'Blockchain-Based Payroll Transaction Log System'
+    'title': 'Blockchain-Based Payroll Transaction Log System',
+    'demo_url': 'https://ais-pre-dx2y2kcxjvhb6ppgg64uym-614781592914.asia-east1.run.app'
 }
 
 @app.context_processor

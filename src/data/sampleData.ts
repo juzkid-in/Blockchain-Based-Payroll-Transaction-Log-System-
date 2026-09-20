@@ -13,6 +13,7 @@ export const ACADEMIC_PROJECT_INFO = {
   institution: 'Visvesvaraya Technological University (VTU)',
   semester: '7th Semester B.E.',
   academicYear: '2026-2027',
+  demoUrl: 'https://ais-pre-dx2y2kcxjvhb6ppgg64uym-614781592914.asia-east1.run.app',
 };
 
 export const SAMPLE_PAYROLL_TRANSACTIONS: PayrollData[] = [

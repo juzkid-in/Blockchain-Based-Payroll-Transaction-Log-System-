@@ -1,5 +1,15 @@
 # Blockchain-Based Payroll Transaction Log System
 
+[![Live Demo](https://img.shields.io/badge/Live_Demo-Open_Application-success?style=for-the-badge&logo=googlechrome&logoColor=white)](https://ais-pre-dx2y2kcxjvhb6ppgg64uym-614781592914.asia-east1.run.app)
+[![VTU Academic Project](https://img.shields.io/badge/VTU-BIC702_Activity_1-blue?style=for-the-badge)](https://ais-pre-dx2y2kcxjvhb6ppgg64uym-614781592914.asia-east1.run.app)
+[![Cryptographic Standard](https://img.shields.io/badge/Security-SHA--256-orange?style=for-the-badge)](https://ais-pre-dx2y2kcxjvhb6ppgg64uym-614781592914.asia-east1.run.app)
+
+> 🌐 **Live Interactive Demo:**  
+> 👉 **[https://ais-pre-dx2y2kcxjvhb6ppgg64uym-614781592914.asia-east1.run.app](https://ais-pre-dx2y2kcxjvhb6ppgg64uym-614781592914.asia-east1.run.app)**  
+> *(Test and inspect the live interactive blockchain application online)*
+
+---
+
 **Visvesvaraya Technological University (VTU) – 7th Semester B.E.**  
 **Subject:** Blockchain Technology (`BIC702`)  
 **Activity:** Activity Based Learning – Activity 1  
@@ -14,6 +24,7 @@
 - **Department:** Department of IoT, Cybersecurity and Blockchain Technology
 - **Institution:** Visvesvaraya Technological University (VTU)
 - **Academic Year:** 2026–2027
+- **Live Demo URL:** [https://ais-pre-dx2y2kcxjvhb6ppgg64uym-614781592914.asia-east1.run.app](https://ais-pre-dx2y2kcxjvhb6ppgg64uym-614781592914.asia-east1.run.app)
 
 ---
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { ACADEMIC_PROJECT_INFO } from '../data/sampleData';
-import { ShieldCheck, User, Award, BookOpen, RefreshCw, PlusCircle, Database, CheckCircle } from 'lucide-react';
+import { ShieldCheck, User, Award, BookOpen, RefreshCw, PlusCircle, Database, CheckCircle, ExternalLink } from 'lucide-react';
 
 interface StudentHeaderProps {
   blockCount: number;
@@ -28,10 +28,21 @@ export const StudentHeader: React.FC<StudentHeaderProps> = ({
             </span>
             <span>Visvesvaraya Technological University • Department of IoT, Cybersecurity and Blockchain Technology</span>
           </div>
-          <div className="flex items-center gap-4 text-xs">
+          <div className="flex items-center gap-3 text-xs">
             <span>Subject: <strong className="text-white">Blockchain Technology ({ACADEMIC_PROJECT_INFO.subjectCode})</strong></span>
             <span className="hidden sm:inline">•</span>
             <span className="hidden sm:inline">Activity: <strong className="text-white">Activity Based Learning – Activity 1</strong></span>
+            <span className="hidden sm:inline">•</span>
+            <a
+              href={ACADEMIC_PROJECT_INFO.demoUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-semibold border border-emerald-400/30 hover:bg-emerald-500/30 transition-colors"
+              title="Live Demo Preview"
+            >
+              <ExternalLink className="w-3 h-3" />
+              <span>Live Demo</span>
+            </a>
           </div>
         </div>
       </div>

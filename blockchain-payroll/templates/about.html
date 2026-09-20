@@ -12,6 +12,12 @@
         <div><span>Subject Code:</span> <strong>{{ student_info.subject_code }}</strong></div>
         <div><span>Activity:</span> <strong>{{ student_info.activity }}</strong></div>
         <div><span>Assigned Topic:</span> <strong>{{ student_info.topic }}</strong></div>
+        <div style="grid-column: 1 / -1; background: rgba(37, 99, 235, 0.1); padding: 8px 12px; border-radius: 6px; border: 1px solid rgba(59, 130, 246, 0.3);">
+            <span>Live Web Demo URL:</span> 
+            <a href="{{ student_info.demo_url }}" target="_blank" style="color: #60a5fa; font-weight: 600; text-decoration: underline; margin-left: 6px; word-break: break-all;">
+                {{ student_info.demo_url }} &nearr;
+            </a>
+        </div>
     </div>
 
     <hr class="divider">

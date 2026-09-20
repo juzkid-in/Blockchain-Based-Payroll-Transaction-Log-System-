@@ -10,7 +10,7 @@
     "clean": "rm -rf dist server.js",
     "lint": "tsc --noEmit",
     "test:workflow": "tsx src/test_e2e.ts",
-    "test:python": "python3 blockchain-payroll/test_e2e_workflow.py"
+    "test:python": "python3 blockchain-payroll/test_core_python.py"
   },
   "dependencies": {
     "@google/genai": "^2.4.0",
