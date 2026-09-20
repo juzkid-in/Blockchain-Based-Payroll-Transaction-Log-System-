@@ -5,8 +5,10 @@
 [![Cryptographic Standard](https://img.shields.io/badge/Security-SHA--256-orange?style=for-the-badge)](https://ais-pre-dx2y2kcxjvhb6ppgg64uym-614781592914.asia-east1.run.app)
 
 > 🌐 **Live Interactive Demo:**  
-> 👉 **[https://ais-pre-dx2y2kcxjvhb6ppgg64uym-614781592914.asia-east1.run.app](https://ais-pre-dx2y2kcxjvhb6ppgg64uym-614781592914.asia-east1.run.app)**  
-> *(Click above to interact with the live blockchain visualizer, tamper simulation sandbox, and verification engine directly in your browser without local installation)*
+> - **Public Cloud Run Link:** **[https://ais-pre-dx2y2kcxjvhb6ppgg64uym-614781592914.asia-east1.run.app](https://ais-pre-dx2y2kcxjvhb6ppgg64uym-614781592914.asia-east1.run.app)**  
+>   *(Note: Activated by clicking the **"Share"** button in the AI Studio editor header)*  
+> - **Direct Development Link (Author Access):** **[https://ais-dev-dx2y2kcxjvhb6ppgg64uym-614781592914.asia-east1.run.app](https://ais-dev-dx2y2kcxjvhb6ppgg64uym-614781592914.asia-east1.run.app)**  
+> - **GitHub Pages (Automatic):** Push this repository to GitHub and enable Pages in repository settings — `.github/workflows/deploy.yml` will automatically build and host your live demo at `https://<your-username>.github.io/<repo-name>/`!
 
 ---
 
